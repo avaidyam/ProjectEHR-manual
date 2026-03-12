@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProjectEHR User Guide</title>
+    <style>
+        :root { 
+            --primary: #2c3e50; 
+            --link: #2980b9; 
+            --bg: #f4f7f6; 
+            --surface: #ffffff; 
+            --border: #e0e6ed; 
+        }
+
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+            line-height: 1.6; 
+            background-color: var(--bg); 
+            color: var(--primary); 
+            scroll-behavior: smooth; 
+            margin: 0; 
+            padding: 0; 
+        }
+        body > div { 
+            display: flex; 
+            gap: 2rem; 
+            padding: 2rem; 
+        }
+        main { 
+            flex: 1; 
+            background: var(--surface); 
+            padding: 3rem; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+        }
+
+        section > div { 
+            display: grid; 
+            grid-template-columns: 1fr 2fr; 
+            gap: 2rem; 
+        }
+        section > div { 
+            border-bottom: 1px solid var(--border); 
+        }
+        section > div:last-child { 
+            border-bottom: none; 
+        }
+        section a { 
+            color: var(--link); 
+            font-weight: 600; 
+            text-decoration: none; 
+        }
+        section img { 
+            width: 100%; 
+        }
+
+        aside { 
+            flex-shrink: 0; 
+        }
+        aside nav { 
+            position: sticky; 
+            top: 2rem; 
+            background: var(--surface); 
+            padding: 2rem; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+        }
+        aside nav h3 { 
+            margin-top: 0; 
+            border-bottom: 1px solid var(--border); 
+        }
+        aside nav ul { 
+            list-style: none; 
+            padding: 0; 
+            margin: 0; 
+        }
+        aside nav li { 
+            margin-bottom: 0.5rem; 
+        }
+        aside nav a { 
+            text-decoration: none; 
+            color: var(--link); 
+            font-weight: 500; 
+            transition: color 0.2s ease; 
+        }
+        aside nav a:hover { 
+            color: #1abc9c; 
+        }
+    </style>
+</head>
+<body>
+<div>
+    <main>
+        <h1>ProjectEHR User Guide</h1>
+        <p>ProjectEHR is a powerful simulation electronic medical records platform for medical students to use during clinical practice, clinical simulations, and problem-based learning sessions. This use guide is intended for both students accessing cases interactively, as well as facilitators building such cases.</p>
+        <section id="intake-triage">
+            <h2>1.1. Login</h2>
+            <div>
+                <p>To begin with, open the ProjectEHR URL in Google Chrome. <br /><br /><i>(Other browsers are not officially supported at this time.)</i></p>
+                <img src="img/ehr1.png">
+            </div>
+            <div>
+                <p>Once you've entered your username and password, please select a department. <br /><br /><i>Your system context can be changed later.</i></p>
+                <img src="img/ehr3.png">
+            </div>
+            <div>
+                <p>Once you've logged in, you will be redirected to the default tab, the <a href="#patient-schedule">Patient Schedule</a> tab.</p>
+                <img src="img/ehr4.png">
+            </div>
+        </section>
+        <section id="system-tools">
+            <h2>1.2. System Tools</h2>
+            <div>
+                <div>
+                    <p>In the system menu at the top left, there are several system tools you can use to manage ProjectEHR:</p>
+                    <ul>
+                        <li><a href="#uptodate">UpToDate</a>: students can use this menu item to launch a web browser that opens UpToDate.</li>
+                        <li><a href="#patient-lookup">Patient Lookup</a></li>
+                        <li><a href="#pdmp-manager">PDMP Manager</a></li>
+                        <li><a href="#manage-departments">Manage Departments</a></li>
+                        <li><a href="#flowsheet-definitions">Flowsheet Definitions</a></li>
+                        <li><a href="#database-management">Database Management</a></li>
+                        <li><a href="#manage-conditionals">Manage Conditionals</a></li>
+                    </ul>
+                </div>
+                <img src="img/ehr5.png">
+            </div>
+        </section>
+        <section id="patient-schedule">
+            <h2>1.3. Patient Schedule</h2>
+            <div>
+                <p>Once you've scheduled patients for appointments, you'll be able to navigate between the different department schedules and different dates using the toolbar at the top of the schedule list.<br /><br />Double-clicking on an appointment in the schedule list will open that encounter.</p>
+                <img src="img/ehr25.png">
+            </div>
+        </section>
+        <section id="patient-lookup">
+            <h2>1.4. Patient Lookup & Create</h2>
+            <div>
+                <p>This system tool allows you to search for patient charts or create a new chart if one does not exist in the system yet.</p>
+                <img src="img/ehr6.png">
+            </div>
+            <div>
+                <div><p>Navigating to the first tab in this tool window will show you several text entry fields. Filling in these fields and pressing "Find Patient" or "Accept" will open the patient chart if a matching patient is found.</p><p>To <b>create a new patient</b>, press the "New" button at the bottom of the tool window.</p><p>If you do not enter in any of the fields (such as name, sex, and birthdate), a Doe patient will be created with a randomized last name and a birthdate of 1/1/1890.</p><p>Once the patient chart has been created, it will be opened for you automatically in <a href="#patient-chart">Chart Review mode</a>.</p></div>
+                <img src="img/ehr7.png">
+            </div>
+        </section>
+        <section id="patient-chart">
+            <h2>2.1. Patient Chart</h2>
+            <div>
+                <div>
+                    <p>If you open a patient chart in Chart Review mode, or you've just created a new patient using the <a href="#patient-lookup">Patient Lookup</a> system tool, you will see the main patient chart window. Several tabs are available in the main pane and the sidebar, as well as an overflow menu at the top right of the main pane.</p>
+                    <ul>
+                        <li><a href="#snapshot">Snapshot</a></li>
+                        <li><a href="#chart-review">Chart Review</a></li>
+                        <li><a href="#visit-info">Visit Info</a></li>
+                        <li><a href="#problem-list">Problem List</a></li>
+                        <li><a href="#medical-history">History</a></li>
+                        <li><a href="#results-review">Results Review</a></li>
+                        <li><a href="#immunizations">Immunizations</a></li>
+                        <li><a href="#allergies">Allergies</a></li>
+                        <li><a href="#demographics">Demographics</a></li>
+                        <li><a href="#pdmp">PDMP</a></li>
+                        <li><a href="#flowsheets">Flowsheet</a></li>
+                        <li><a href="#appointment-desk">Appointment Desk</a></li>
+                        <li><a href="#event-log">Event Log</a></li>
+                        <li><a href="#mar">Medication Administration Record (MAR)</a></li>
+                        <li><a href="#notes">Notes</a></li>
+                        <li><a href="#create-encounter">Create Encounter</a></li>
+                    </ul>
+                </div>
+                <img src="img/ehr9.png">
+            </div>
+        </section>
+        <section id="demographics">
+            <h2>2.2. Demographics</h2>
+            <div>
+                <p>The demographics tab allows you to see and modify basic information about the patient, such as their name, birthdate, sex, and more. If you've just created a new patient using the <a href="#patient-lookup">Patient Lookup</a> system tool, you may need to modify their basic information.</p>
+                <img src="img/ehr10.png">
+            </div>
+            <div>
+                <p>To begin, press the edit pencil icon at the top left, next to "Basics". Then, make the changes you need.</p>
+                <img src="img/ehr11.png">
+            </div>
+            <div>
+                <p>Once you've made changes you want to save, you <b>MUST</b> press the Save button at the bottom of the section.</p>
+                <img src="img/ehr12.png">
+            </div>
+        </section>
+        <section id="care-team">
+            <h2>2.3. Care Team</h2>
+            <div>
+                <p>The care team editor can be accessed by pressing the edit icon next to "Care Team" in the patient sidebar.</p>
+                <img src="img/ehr13.png">
+            </div>
+            <div>
+                <p>You'll be able to add any provider from any department to the patient's care team.</p>
+                <img src="img/ehr14.png">
+            </div>
+            <div>
+                <p>You can select from the roles provided, or enter your own role, such as <b>"PCP"</b>.</p>
+                <img src="img/ehr15.png">
+            </div>
+            <div>
+                <p>Once you've made changes to the care team, press "Save Changes". It's important to note that the Care Team is <b>NOT</b> unique to the current encounter, and will be visible across <b>ALL</b> encounters for this patient.</p>
+                <img src="img/ehr16.png">
+            </div>
+        </section>
+        <section id="create-encounter">
+            <h2>2.4. Create Encounter</h2>
+            <div>
+                <p>To create a new encounter for this patient, open the Create Encounter tab. A new tool window will pop up.</p>
+                <img src="img/ehr17.png">
+            </div>
+            <div>
+                <p>You'll be able to set the start and end date and time for the encounter here.</p>
+                <img src="img/ehr18.png">
+            </div>
+            <div>
+                <p>Each encounter must have an associated department, provider, specialty, and type. Once you've made your selections, press "Create".</p>
+                <img src="img/ehr19.png">
+            </div>
+            <div>
+                <p>Once the new encounter is created, it will open as a new tab, separate from the Chart Review tab that was already open for this patient.</p>
+                <img src="img/ehr20.png">
+            </div>
+        </section>
+        <section id="visit-info">
+            <h2>3.1. Visit Info</h2>
+            <div>
+                <p>To edit information about the current encounter, such as reason for visit (aka "chief complaint"), open the Visit Info tab.</p>
+                <img src="img/ehr21.png">
+            </div>
+            <div>
+                <p>You can enter any number of reasons for the current visit, as well as comments to provide more details. This information will be visible in the patient sidebar when this encounter is viewed.</p>
+                <img src="img/ehr22.png">
+            </div>
+        </section>
+        <section id="appointment-desk">
+            <h2>3.2. Appointment Desk</h2>
+            <div>
+                <p>To create a new appointment, open the Appointment Desk tab. Here you will see a list of all existing appointments, across <b>ALL</b> encounters for this patient.</p>
+                <img src="img/ehr23.png">
+            </div>
+            <div>
+                <div><p>To create a new appointment, select the encounter you wish to link, then select the department, provider, appointment type and time, as well as location. These fields will likely be the same as what you entered when creating the encounter.</p><p>To schedule this appointment, press the "Schedule" button. Once the appointment has been created, you can find it in the <a href="#patient-schedule">Patient Schedule</a> tab.</p></div>
+                <img src="img/ehr24.png">
+            </div>
+        </section>
+        <section id="notes">
+            <h2>3.3. Notes</h2>
+            <div>
+                <p>The Notes activity allows you to view all notes for the current encounter <b>ONLY</b>. <br /><br /><i>(To view <b>ALL</b> notes, please use the <a href="#chart-review">Chart Review</a> tab.)</i><br /><br />To create a new note for the current encounter, press the "New Note" button at the top right.</p>
+                <img src="img/ehr27.png">
+            </div>
+            <div>
+                <p>This will open the Note Editor in the sidebar, and the a block editor on the main pane for Review of Systems and Physical Exam. You can put any content you would use in a Microsoft Word document into the Note Editor, including images, tables, and links.<br /><br />Once your note is complete, ensure it has a service date, note type, and service department, then select "Sign" at the bottom toolbar and press "Accept". This will save the note to the current encounter.</p>
+                <img src="img/ehr26.png">
+            </div>
+        </section>
+        <section id="problem-list">
+            <h2>3.4. Problem List</h2>
+            <div>
+                <p>The problem list tab allows you to manage the list of problems for the patient for the current encounter <b>ONLY</b>. To start, search for an item or press the "Add" button to bring up the Diagnosis Search tool window.</p>
+                <img src="img/ehr32.png">
+            </div>
+            <div>
+                <p>You can search for multiple diagnoses at one time by using the "Select and Stay" option. Once you are ready to proceed, press the "Accept" button.</p>
+                <img src="img/ehr33.png">
+            </div>
+            <div>
+                <p>Once your problem list item has been created, you are able to change the diagnosis code and display label independently. (For example, you might want to have "Primary osteoarthritis, unspecified site (M19.91)" display as "Osteoarthritis".)<br /><br />By selecting the "Encounter Diagnosis" checkbox, this problem will become a visit diagnosis. You can also add this problem to the patient's <a href="#medical-history">Medical History</a> by pressing the "Add to History" button. These changes will only take place once the "Accept" button is pressed.</p>
+                <img src="img/ehr34.png">
+            </div>
+        </section>
+        <section id="medical-history">
+            <h2>3.5. Medical History</h2>
+            <div>
+                <p>The History tab will automatically open to its first sub-tab, Medical History. Here, you will be able to view medical history items for the patient in the current encounter, and add new history items.</p>
+                <img src="img/ehr28.png">
+            </div>
+            <div>
+                <p>To add a new medical history item, press the "Add History" button. Then, press the search icon next to the Diagnosis field to open the <a href="#problem-list">Diagnosis Picker</a>.</p>
+                <img src="img/ehr29.png">
+            </div>
+            <div>
+                <p>Once your medical history item has been created, you are able to change the diagnosis code and display label independently. (For example, you might want to have "Primary osteoarthritis, unspecified site (M19.91)" display as "Osteoarthritis".)<br /><br />You can also add this medical history item to the patient's <a href="#problem-list">Problem List</a> by pressing the "Add to Problem List" button. These changes will only take place once the "Accept" button is pressed.</p>
+                <img src="img/ehr31.png">
+            </div>
+        </section>
+        <section id="family-history">
+            <h2>3.6. Family History</h2>
+            <div>
+                <p>The family history tab allows you to view and manage the patient's family history for this current encounter <b>ONLY</b>. You may add a new family member by first selecting their relationship to the patient.</p>
+                <img src="img/ehr48.png">
+            </div>
+            <div>
+                <p>To add a new problem to the family history grid, press the green "Add Problem" button. A new column will appear with the problem you entered.<br /><br />To add a new family history item, press the red checkmark button in the row for the family member whose problem this is, and in the column for the problem itself.</p>
+                <img src="img/ehr49.png">
+            </div>
+            <div>
+                <p>You may also view and change comments for family members by pressing the gray notepad icon in the "Comments" column.</p>
+                <img src="img/ehr50.png">
+            </div>
+        </section>
+        <section id="social-history">
+            <h2>3.7. Social History</h2>
+            <div>
+                <div>
+                    <p>There are multiple social history tabs in the History tab, including:</p>
+                    <ul>
+                        <li><b>Substance & Sexual</b></li>
+                        <li><b>E-Cigarette/Vaping</b></li>
+                        <li><b>Socioeconomic</b></li>
+                        <li><b>Activities of Daily Living (ADL)</b></li>
+                        <li><b>Social Documentation</b></li>
+                        <li><b>Birth Tracking</b></li>
+                        <li><b>Pap Tracking</b></li>
+                        <li><b>Ob/Gyn History</b> <i>(for patients whose Sex is Female)</i></li>
+                    </ul>
+                </div>
+                <img src="img/ehr35.png">
+            </div>
+            <div>
+                <p>In the social documentation tab, you will be able to enter comments about the patient's social history that might not fit in any of the other tabs. You can put any content you would use in a Microsoft Word document into this field, including images, tables, and links.</p>
+                <img src="img/ehr36.png">
+            </div>
+        </section>
+        <section id="medications">
+            <h2>3.8. Home Medications</h2>
+            <div>
+                <p>The Home Medications tab allows you to view and manage the patient's current home medication regimen during this encounter <b>ONLY</b>. To begin, search for a new medication, or press the Add button.</p>
+                <img src="img/ehr37.png">
+            </div>
+            <div>
+                <p>This will pop up the Orders Picker. Please note that when the Orders Picker is opened from Medications, you will not be able to view order sets or procedure orders. You can select multiple items by pressing "Select and Stay", or add items one by one using the "Accept" button.</p>
+                <img src="img/ehr38.png">
+            </div>
+            <div>
+                <p>Once you've selected a medication order, you will be able to further adjust the dosage, route, frequency, and date range. Press "Save" to confirm your changes.</p>
+                <img src="img/ehr39.png">
+            </div>
+        </section>
+        <section id="allergies">
+            <h2>3.9. Allergies</h2>
+            <div>
+                <p>The allergies tab allows you to view and manage all allergies for the patient in the current encounter <b>ONLY</b>. To begin, press the "Add Allergy" button at the top right.</p>
+                <img src="img/ehr40.png">
+            </div>
+            <div>
+                <p>Select the allergen from the drop down list (the allergen type field will auto-populate to match the allergen selected).</p>
+                <img src="img/ehr41.png">
+            </div>
+            <div>
+                <p>You may add multiple reactions, select a severity, and a reaction type. You may also add comments to add more detail. Once you've made your selection, press the "Accept" button.</p>
+                <img src="img/ehr42.png">
+            </div>
+            <div>
+                <p>Upon adding a new allergen, it will appear in the Allergies tab, as well as the patient sidebar. If the reaction severity is "High" it will display in both of these places with a yellow alert background.</p>
+                <img src="img/ehr43.png">
+            </div>
+        </section>
+        <section id="immunizations">
+            <h2>3.10. Immunizations</h2>
+            <div>
+                <p>The immunizations tab allows you to view and manage all immunizations for the patient in the current encounter <b>ONLY</b>. To begin, press the "Add Immunization" button at the top right.</p>
+                <img src="img/ehr44.png">
+            </div>
+            <div>
+                <p>Select the immunization from the vaccine drop-down list, and add the date received. Most other fields are optional and do not need to be entered to save a new immunization entry. Once you've made your selection, press the "Accept" button.</p>
+                <img src="img/ehr45.png">
+            </div>
+        </section>
+        <section id="flowsheets">
+            <h2>3.11. Flowsheets</h2>
+            <div>
+                <p>The flowsheets tab allows you to view and manage flowsheet entries for the <a href="#flowsheet-definitions">Flowsheet Definitions</a> available in the system. First, select a flowsheet template from the menu bar at the top (the default is "Vitals"). The right-most column shows the "Last Filled" data (which cannot be directly edited).</p>
+                <img src="img/ehr46.png">
+            </div>
+            <div>
+                <p>To begin editing a flowsheet, find the "Now" column that appears to the right of all other previously entered columns. Select a cell and begin typing to enter a value. The cell may require you to enter a number, free text, or make a selection from a drop-down list of options.<br /><br />If you make changes to the Vitals flowsheet, you'll also see them in the patient sidebar. You can also hover over the vitals section in the sidebar to see prior entries.</p>
+                <img src="img/ehr47.png">
+            </div>
+        </section>
+        <section id="llm-chat">
+            <h2>3.12. LLM Chat</h2>
+            <div>
+                <p>The Chat tab allows students to initiate an AI-based virtual standardized patient (AI SP) interaction. This section is password protected, so you must first enter the password provided to you.</p>
+                <img src="img/ehr51.png">
+            </div>
+            <div>
+                <p>The Chat tab looks and functions similiarly to popular videoconferencing software (i.e. Zoom, Google Meet, MS Teams).<br /><br />To begin a conversation with the AI SP, press the green call button, which will then turn red to indicate that you can hang up by pressing the same button.<br /><br />The mute/unmute button also allows you to select your device's microphone and speakers, and will show a waveform icon when your voice is being picked up by the system.</p>
+                <img src="img/ehr52.png">
+            </div>
+            <div>
+                <p>To configure the patient and the current encounter for AI SP use, you must press the "Settings" menu item from the menu button next to the green call button. This tool window is also password protected, with a different password than the Chat tab itself.</p>
+                <img src="img/ehr53.png">
+            </div>
+            <div>
+                <p>Once you've entered the Model Configuration tool window, you will be able to set the voice and custom prompt for the patient for the current encounter <b>ONLY</b>.<br /><br />The system prompt is also visible in this tool window, and can be edited, but <b>CHANGES WILL NOT BE SAVED</b>. You can review the full script provided to the AI SP in the right pane of the tool window.</p>
+                <img src="img/ehr56.png">
+            </div>
+            <div>
+                <p>When selecting a voice for the AI SP, helpful voice hints are provided in the drop-down list. If you'd like to listen to a generated voice sample, press the play icon next to the voice name.</p>
+                <img src="img/ehr55.png">
+            </div>
+        </section>
+        <section id="chart-review">
+            <h2>3.13. Chart Review</h2>
+            <div>
+                <p>The Chart Review tab lists <b>ALL</b> encounters, notes, labs, imaging, and orders for the patient, across <b>ALL</b> encounters, including the current encounter. In the "Encounters" sub-tab, you'll be able to select an encounter and press the "Open Encounter" button to open a different encounter in a new system tab.</p>
+                <img src="img/ehr66.png">
+            </div>
+            <div>
+                <p>Cardiac lab and imaging results will appear in the Cardiac tab, if any exist. Some other labs and imaging results may appear in the Specialty Tests tab, if any exist. You can double click a lab or imaging result to open it and view it in more detail. You can also view labs and imaging in a grid or chart using the <a href="#results-review">Results Review</a> tab.</p>
+                <img src="img/ehr67.png">
+            </div>
+            <div>
+                <p>If you open a lab result, you will see a list of components with their values and ranges. Abnormal components will be marked with a yellow background and red arrow. If a lab result has any abnormal components, the entire result is marked as abnormal, with a left-sided yellow strip. A lab result may also have narrative, impression, and comments sections.</p>
+                <img src="img/ehr68.png">
+            </div>
+            <div>
+                <p>If you open an imaging result, you will see a blue  "View Images" in addition to the narrative, impression, and comments sections. Clicking this button will open the <a href="#imaging-viewer">Imaging Viewer</a> for the current imaging item.</p>
+                <img src="img/ehr72.png">
+            </div>
+        </section>
+        <section id="results-review">
+            <h2>3.14. Results Review</h2>
+            <div>
+                <p>The results review tab allows you to view all lab components and imaging results, as a grid, for the current encounter <b>ONLY</b>. You can hover over a cell to view the result component with its reference range and result date. Imaging results will not have a value, and instead, will show a "picture" icon. Pressing the "New Result" button at the top right of the tab will open the <a href="#edit-results">Edit Results</a> tab.</p>
+                <img src="img/ehr70.png">
+            </div>
+        </section>
+        <section id="imaging-viewer">
+            <h2>3.15. Imaging Viewer</h2>
+            <div>
+                <p>The imaging viewer tab allows you to view medical imaging, including DICOM, PNG/JPG files, and more. This tab may pop up for radiological scans, pathology slides, and EKG strips. Right clicking the currently visible image will pop up the tool box, from where you can select a tool, such as window level, pan/zoom, and more.</p>
+                <img src="img/ehr73.png">
+            </div>
+        </section>
+        <section id="edit-results">
+            <h2>3.13. Edit Results</h2>
+            <div>
+                <p>The Edit Results tab allows you to create a new lab or imaging result for the current encounter. All labs and imaging require a date/time, test name, status, and ordering provider. In addition, they may have one or more components (each with a value, low and high range, and comment). Results can also have attached imaging (such as XR, CT, or EKG).</p>
+                <img src="img/ehr62.png">
+            </div>
+            <div>
+                <p>To begin, please search for the appropriate test or exam name (this list includes all lab and radiology orders, as well as miscellaneous orders). If your selected test or exam has components, they will also appear in the lab components table below.</p>
+                <img src="img/ehr63.png">
+            </div>
+            <div>
+                <p>For each component, you can enter value, units, low and high range, and a comment. You can also delete the component if it will not be part of this result. If you change the test or exam, it will not delete components that you have already filled in.</p>
+                <img src="img/ehr65.png">
+            </div>
+            <div>
+                <p>When uploading a non-DICOM image file (i.e. PNG, JPG, etc.), you will see a preview of the image. Once you have made your selections for this new lab or imaging result, press the "Accept" button to save it.</p>
+                <img src="img/ehr71.png">
+            </div>
+        </section>
+        <section id="orders">
+            <h2>3.17. Orders (Sidebar)</h2>
+            <div>
+                <p>The orders sidebar tab allows you to place new orders for the current encounter. To begin, search for an order, or press the "New" button.<br /><br />If any elements of the current encounter conditionally require the "__BICEP__" order to be revealed, the green "Advance Case" button will appear at the bottom right. Pressing this button automatically places and signs the "__BICEP__" order, which will then advance the patient case.</p>
+                <img src="img/ehr74.png">
+            </div>
+            <div>
+                <p>The Browse tab of the Orders Picker allows you to select from some common orders (i.e. ED orders). The preference list and facility list tabs allow you to search the broader database of orders.</p>
+                <img src="img/ehr75.png">
+            </div>
+            <div>
+                <p>Once you find an order you're looking for, you can press "Select and Stay" to queue multiple orders, or press "Accept" to proceed with editing the single order you've chosen.</p>
+                <img src="img/ehr76.png">
+            </div>
+            <div>
+                <p>Once you add new orders to the Orders tab, you are able to edit them or delete them before signing them or pending your work. If any elements of the current encounter are conditionally revealed based on the orders you've signed, those parts of the chart will instantly become visible (i.e. in the patient sidebar, or in the Chart Review tab).</p>
+                <img src="img/ehr77.png">
+            </div>
+        </section>
+        <section id="manage-conditionals">
+            <h2>4.1. Manage Conditionals</h2>
+            <div>
+                <p>The Manage Conditionals system tool is a powerful way to build cases by obscuring elements of the current encounter until certain orders have been placed. On the left pane, you will see a tree of all elements in the current encounter, such as Problem List, Medical History, Notes, and more.</p>
+                <img src="img/ehr57.png">
+            </div>
+            <div>
+                <p>Selecting an item will show you more details about the item in the right pane. Here, you can search for and add an order (by name OR id).<br /><br />You can also require multiple orders to be fulfilled before the selected item is revealed in the patient chart (i.e. one CT brain order for a pre-intervention imaging result, and two CT brain orders for the post-intervention imaging result).</p>
+                <img src="img/ehr58.png">
+            </div>
+            <div>
+                <p>You can reorder the list of conditional orders for the selected item, and delete orders that will no longer be required to be fulfilled before the selected item becomes visible in the patient chart. If no order was placed to fulfill the conditional order requirement, you will see an empty bubble to the left of the order name.</p>
+                <img src="img/ehr59.png">
+            </div>
+            <div>
+                <p>If an order has been placed for the current encounter, and it fulfills your conditional order requirement, you will instead see a green checkmark to the left of the order name.</p>
+                <img src="img/ehr78.png">
+            </div>
+        </section>
+    </main>
+    <aside>
+        <nav>
+            <h3>Quick Navigation</h3>
+            <ul /> <!-- DYNAMICALLY GENERATED -->
+        </nav>
+    </aside>
+</div>
+<script>
+// DYNAMICALLY GENERATE NAVIGATION MENU
+document.querySelector('nav ul').innerHTML = [...document.querySelectorAll('main section')]
+    .map(s => `<li><a href="#${s.id}">${s.querySelector('h2').innerText}</a></li>`).join('');
+</script>
+</body>
+</html>
